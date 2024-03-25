@@ -6,14 +6,29 @@
         xmlns:local="clr-namespace:DPGI_Lab2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="500">
-        <Label HorizontalAlignment="Center">Label</Label>
+    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="440">
+        <Label>Label</Label>
         <TextBox>TextBox</TextBox>
         <TextBox>TextBox</TextBox>
         <TextBox>TextBox</TextBox>
         <TextBox>TextBox</TextBox>
-        <Button Width="200" Margin="0,25,0,0">Button1</Button>
-    </StackPanel>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <Label>Label</Label>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <Button Width="100" Margin="100,10,0,0">Button1</Button>
+       
+    </WrapPanel>
+
 
 
 </Window>
