@@ -44,9 +44,11 @@
                                 <RowDefinition Height="250"></RowDefinition>
                                 <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBox Grid.Row="0" Margin="15,20,15,20" ScrollViewer.VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" ></TextBox>
+                        <TextBox Grid.Row="0" Margin="15,20,15,20" ScrollViewer.VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="{Binding ElementName=fontSlider, Path=Value}"></TextBox>
                         <DockPanel Grid.Row="1">
-                                <Button DockPanel.Dock="Bottom" Width="20" Margin="0,10" Style="{x:Null}">Ok</Button>
+                                <Label VerticalAlignment="Center" FontSize="13" Margin="0,0,0,10">Розмір шрифту:</Label>
+                                <Slider x:Name="fontSlider" Margin="4" MinWidth="100" Maximum="100" Minimum="12"/>
+                                <Button DockPanel.Dock="Bottom" Width="30" Margin="0,0,0,15" Style="{x:Null}">Ok</Button>
                         </DockPanel>
                 </Grid>
                 </Border>
