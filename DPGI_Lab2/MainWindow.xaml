@@ -30,10 +30,12 @@
                 <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"> 
                 
                 <StackPanel Grid.Row="0" Orientation="Horizontal" Background="{StaticResource LinearPanelBrush}" >
-                        <Button Width="100" ToolTip="Open file"><Image Source="/images/Open.png"/></Button>
-                        <Button Width="100" ToolTip="Clear all text"><Image Source="/images/Clear.png"/></Button>
-                        <Button Width="100" ToolTip="Copy all text"><Image Source="/images/Copy.png"/></Button>
-                        <Button Width="100" ToolTip="Paste"><Image Source="/images/Paste.png"/></Button>
+                        <Button Width="100" ToolTip="Open file" Command="Open"><Image Source="/images/Open.png"/></Button>
+                        <Button Width="100" ToolTip="Clear all text" Command="Close"><Image Source="/images/Clear.png"/></Button>
+                        <Button Width="100" ToolTip="Copy dedicated text" Command="Copy" 
+                                CommandTarget="{Binding ElementName=TextBoxMain}"><Image Source="/images/Copy.png"/></Button>
+                        <Button Width="100" ToolTip="Paste" Command="Paste"
+                                CommandTarget="{Binding ElementName=TextBoxMain}"><Image Source="/images/Paste.png"/></Button>
                 </StackPanel>
                 </Border>
                 
@@ -44,11 +46,16 @@
                                 <RowDefinition Height="250"></RowDefinition>
                                 <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBox Grid.Row="0" Margin="15,20,15,20" ScrollViewer.VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="{Binding ElementName=fontSlider, Path=Value}"></TextBox>
+                        <TextBox Grid.Row="0" Margin="15,20,15,20"  x:Name="TextBoxMain"
+                                 ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                                 TextWrapping="Wrap" FontSize="{Binding 
+                                 ElementName=fontSlider, Path=Value
+                                 }"></TextBox>
                         <DockPanel Grid.Row="1">
                                 <Label VerticalAlignment="Center" FontSize="13" Margin="0,0,0,10">Розмір шрифту:</Label>
                                 <Slider x:Name="fontSlider" Margin="4" MinWidth="100" Maximum="100" Minimum="12"/>
-                                <Button DockPanel.Dock="Bottom" Width="30" Margin="0,0,0,15" Style="{x:Null}">Ok</Button>
+                                <Button DockPanel.Dock="Bottom" Width="30" Margin="0,0,0,15" Command="Save" 
+                                        Style="{x:Null}" ToolTip="Save">Ok</Button>
                         </DockPanel>
                 </Grid>
                 </Border>
