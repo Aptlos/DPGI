@@ -5,16 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DPGI_Lab2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        Background="Aqua">
-    <Canvas>
-        <Label Canvas.Top="20" Canvas.Left="20">Label</Label>
-        <TextBox Canvas.Top="40" Canvas.Left="40">text</TextBox>
-        <Button Canvas.Top="60" Canvas.Left ="60">button</Button>
-    </Canvas>
-
-
-
+        Title="MainWindow" Height="450" Width="800">
+    <Grid> 
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"> 
+                
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button Width="100" ToolTip="Open file"><Image Source="/images/Open.png"/></Button>
+                        <Button Width="100" ToolTip="Clear all text"><Image Source="/images/Clear.png"/></Button>
+                        <Button Width="100" ToolTip="Copy all text"><Image Source="/images/Copy.png"/></Button>
+                        <Button Width="100" ToolTip="Paste"><Image Source="/images/Paste.png"/></Button>
+                </StackPanel>
+                </Border>
+                
+                <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"> 
+                
+                <Grid Grid.Row="1" >
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="250"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Row="0" Margin="15,20,15,20" ScrollViewer.VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" ></TextBox>
+                        <DockPanel Grid.Row="1">
+                                <Button DockPanel.Dock="Bottom" Width="20" Margin="0,10" Style="{x:Null}">Ok</Button>
+                        </DockPanel>
+                </Grid>
+                </Border>
+        </Grid>
+        
 
 
 </Window>
