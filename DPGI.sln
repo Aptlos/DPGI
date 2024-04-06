@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPGI_Lab2", "DPGI_Lab2\DPGI_Lab2.csproj", "{2718A486-FAFB-4E12-9591-5EF9707615C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPGI_Lab3", "DPGI_Lab3\DPGI_Lab3.csproj", "{7D342DB4-631D-4BEF-ACBA-4CBD262F5604}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{2718A486-FAFB-4E12-9591-5EF9707615C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2718A486-FAFB-4E12-9591-5EF9707615C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2718A486-FAFB-4E12-9591-5EF9707615C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D342DB4-631D-4BEF-ACBA-4CBD262F5604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D342DB4-631D-4BEF-ACBA-4CBD262F5604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D342DB4-631D-4BEF-ACBA-4CBD262F5604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D342DB4-631D-4BEF-ACBA-4CBD262F5604}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
