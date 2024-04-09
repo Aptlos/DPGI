@@ -9,6 +9,6 @@ public class Currency
 
     public override string ToString()
     {
-        return string.Format("{0} \nCode: {1}", Name, Code);
+        return string.Format("{0} Code: {1}\nExchange rate: {2}", Name, Code,Exchange);
     }
 }

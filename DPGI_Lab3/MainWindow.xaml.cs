@@ -23,6 +23,7 @@ namespace DPGI_Lab3
         public MainWindow()
         {
             InitializeComponent();
+            
         }
         
         private void Butto_Click(object sender, RoutedEventArgs e)
@@ -42,7 +43,11 @@ namespace DPGI_Lab3
             sb1.Append(string.Format("{0:F3}", value2.Exchange / value1.Exchange));
             TextBox_Value2.Text = sb.ToString();
             TextBox_Exchange.Text = sb1.ToString();
+        }
 
+        private void Exchange_Click(object sender, RoutedEventArgs e)
+        {
+            new ExchangeList().Show();
         }
     }
 }
