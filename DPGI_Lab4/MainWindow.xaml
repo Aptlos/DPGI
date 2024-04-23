@@ -7,7 +7,15 @@
         Loaded="MainWindow_OnLoaded"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
+    <DockPanel>
+    <ToolBar Height="25" VerticalAlignment="Top" DockPanel.Dock="Top">
+        <Button Click="ButtonCreate_OnClick">Create</Button>
+        <Separator />
+        <Button Click="ButtonUpdate_OnClick">Update</Button>
+        <Separator />
+        <Button Click="ButtonDelete_OnClick">Delete</Button>
+    </ToolBar>
+
     <Grid
         DataContext="{Binding ElementName=listFullName, Path=SelectedItem}">
         <Grid.ColumnDefinitions>
@@ -35,34 +43,34 @@
                  ItemsSource="{Binding}" DisplayMemberPath="UserName" />
 
         <TextBlock Grid.Row="1" Margin="5">ID:</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1"
+        <TextBox Grid.Row="1" Grid.Column="1" Name="IdBox" IsReadOnly="True"
                  Text="{Binding SelectedItem.UserId, ElementName=MainListBox, Mode=OneWay}"
                  Focusable="True"/>
 
         <TextBlock Grid.Row="2" Margin="5">Name:</TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="2"
+        <TextBox Grid.Row="2" Grid.Column="2" Name="NameBox"
                  Text="{Binding SelectedItem.UserName, ElementName=MainListBox, Mode=OneWay}"
                  Focusable="True" />
 
         <TextBlock Grid.Row="3" Margin="5">Phone:</TextBlock>
-        <TextBox Grid.Row="3" Grid.Column="2"
+        <TextBox Grid.Row="3" Grid.Column="2" Name="PhoneBox"
                  Text="{Binding SelectedItem.UserPhone, ElementName=MainListBox, Mode=OneWay}"
                  Focusable="True" />
 
         <TextBlock Grid.Row="4" Margin="5">Address:</TextBlock>
-        <TextBox Grid.Row="4" Grid.Column="2"
+        <TextBox Grid.Row="4" Grid.Column="2" Name="AddressBox"
                  Text="{Binding SelectedItem.UserAddress, ElementName=MainListBox, Mode=OneWay}"
                  Focusable="True" />
 
         <TextBlock Grid.Row="5" Margin="5">Gains:</TextBlock>
-        <TextBox Grid.Row="5" Grid.Column="2"
+        <TextBox Grid.Row="5" Grid.Column="2" Name="GainsBox"
                  Text="{Binding SelectedItem.UserGains, ElementName=MainListBox, Mode=OneWay}"
                  Focusable="True" />
         
         <TextBlock Grid.Row="6" Margin="5">Spends:</TextBlock>
-        <TextBox Grid.Row="6" Grid.Column="2"
+        <TextBox Grid.Row="6" Grid.Column="2" Name="SpendsBox"
                  Text="{Binding SelectedItem.UserSpends, ElementName=MainListBox, Mode=OneWay}"
                  Focusable="True" />
     </Grid>
-
+    </DockPanel>
 </Window>

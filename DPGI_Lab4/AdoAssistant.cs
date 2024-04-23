@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -64,6 +65,24 @@ public class AdoAssistant
         adapter.Fill(table);
 
         return table;
+    }
+
+    public void ExecuteNonQuery(string query)
+    {
+        try
+        {
+            var connection = new SQLiteConnection(_connectionString);
+            connection.Open();
+            var command = connection.CreateCommand(); 
+            command.CommandText = query;
+            var rowsAffected = command.ExecuteNonQuery();
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show("Bad data");
+            throw;
+        }
+
     }
     
 }
