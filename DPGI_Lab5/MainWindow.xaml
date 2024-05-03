@@ -7,6 +7,146 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl>
+            <TabItem Header="Clients Table">
+                <DataGrid x:Name="ClientsGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding ClientId}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding ClientName}" />
+                        <DataGridTextColumn Header="Phone" Binding="{Binding ClientPhone}" />
+                        <DataGridTextColumn Header="Company" Binding="{Binding Company}" />
+                        <DataGridTextColumn Header="Gains" Binding="{Binding ClientGains}" />
+                        <DataGridTextColumn Header="Spends" Binding="{Binding ClientSpends}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Companies Table">
+                <DataGrid x:Name="CompaniesGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding CompanyId}" />
+                        <DataGridTextColumn Header="Company name" Binding="{Binding CompanyName}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            
+            
+            <TabItem Header="Joined Table">
+                <DataGrid x:Name="JoinTableGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding ClientId}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding ClientName}" />
+                        <DataGridTextColumn Header="Phone" Binding="{Binding ClientPhone}" />
+                        <DataGridTextColumn Header="Company" Binding="{Binding Company}" />
+                        <DataGridTextColumn Header="Gains" Binding="{Binding ClientGains}" />
+                        <DataGridTextColumn Header="Spends" Binding="{Binding ClientSpends}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            
+            
+            <TabItem Header="Search in Clients">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
+                    <TextBlock Grid.Row="0" Grid.Column="0"  Margin="5">Id:</TextBlock>
+                    <TextBox x:Name="IdBox" 
+                             TextChanged="SerchTabTextChanged"
+                             PreviewTextInput="NumberValidationTextBox"
+                        Grid.Row="0" Grid.Column="1"
+                             Focusable="True" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5">Name:</TextBlock>
+                    <TextBox x:Name="NameBox" 
+                             TextChanged="SerchTabTextChanged"
+                             Grid.Row="1" Grid.Column="1"
+                             Focusable="True" />
+                    
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5">Phone:</TextBlock>
+                    <TextBox x:Name="PhoneBox" 
+                             TextChanged="SerchTabTextChanged"
+                             Grid.Row="2" Grid.Column="1"
+                             Focusable="True" />
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5">Company:</TextBlock>
+                    <TextBox x:Name="CompanyBox"
+                             TextChanged="SerchTabTextChanged"
+                             PreviewTextInput="NumberValidationTextBox"
+                             Grid.Row="3" Grid.Column="1"
+                             Focusable="True" />
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="5">Gains:</TextBlock>
+                    <TextBox x:Name="GainsBox" 
+                             TextChanged="SerchTabTextChanged"
+                             PreviewTextInput="NumberValidationTextBox"
+                             Grid.Row="4" Grid.Column="1"
+                             Focusable="True" />
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Margin="5">Spends:</TextBlock>
+                    <TextBox x:Name="SpendsBox" 
+                             TextChanged="SerchTabTextChanged"
+                             PreviewTextInput="NumberValidationTextBox"
+                             Grid.Row="5" Grid.Column="1"
+                             Focusable="True" />
+                    
+                    <DataGrid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                              x:Name="SearchClientsGrid"
+                              AutoGenerateColumns="False"
+                              ItemsSource="{Binding}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding ClientId}" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding ClientName}" />
+                            <DataGridTextColumn Header="Phone" Binding="{Binding ClientPhone}" />
+                            <DataGridTextColumn Header="Company" Binding="{Binding Company}" />
+                            <DataGridTextColumn Header="Gains" Binding="{Binding ClientGains}" />
+                            <DataGridTextColumn Header="Spends" Binding="{Binding ClientSpends}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            
+            
+            <TabItem Header="Search in Joined by Company">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="5">Company:</TextBlock>
+                    <TextBox x:Name="CompanySearchBox" 
+                             TextChanged="SearchByCompany"
+                             Grid.Row="0" Grid.Column="1"
+                             Focusable="True" />
+                    
+                    <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                              x:Name="SearchByCompanyGrid"
+                              AutoGenerateColumns="True"
+                              ItemsSource="{Binding}">
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

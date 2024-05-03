@@ -27,9 +27,16 @@ public partial class DPGIDbContext : DbContext
     {
         modelBuilder.Entity<Client>(entity =>
         {
-            entity.Property(e => e.ClientGains).HasDefaultValueSql("0");
-            entity.Property(e => e.ClientPhone).HasDefaultValueSql("'-'");
-            entity.Property(e => e.ClientSpends).HasDefaultValueSql("0");
+            entity.Property(e => e.ClientGains)
+                .HasDefaultValueSql("0")
+                .HasColumnType("float");
+            entity.Property(e => e.ClientName).HasColumnType("varchar(100)");
+            entity.Property(e => e.ClientPhone)
+                .HasDefaultValueSql("'-'")
+                .HasColumnType("varchar(100)");
+            entity.Property(e => e.ClientSpends)
+                .HasDefaultValueSql("0")
+                .HasColumnType("float");
         });
 
         modelBuilder.Entity<Comapny>(entity =>
