@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPGI_Lab4", "DPGI_Lab4\DPGI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPGI_Lab5", "DPGI_Lab5\DPGI_Lab5.csproj", "{B2CE76FC-E64C-416F-9185-959C8C812E8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPGI_Lab6", "DPGI_Lab6\DPGI_Lab6.csproj", "{688630AD-847D-4863-8D24-AB1D6CE4AF77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{B2CE76FC-E64C-416F-9185-959C8C812E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2CE76FC-E64C-416F-9185-959C8C812E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2CE76FC-E64C-416F-9185-959C8C812E8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688630AD-847D-4863-8D24-AB1D6CE4AF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688630AD-847D-4863-8D24-AB1D6CE4AF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688630AD-847D-4863-8D24-AB1D6CE4AF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688630AD-847D-4863-8D24-AB1D6CE4AF77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
