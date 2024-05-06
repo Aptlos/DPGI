@@ -22,6 +22,13 @@
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
         </Style>
+        
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="DisplayMemberPath" Value="ValName"></Setter>
+            <Setter Property="ItemsSource" Value="{Binding}"></Setter>
+        </Style>
     </Window.Resources>
     
     <Grid>
@@ -30,7 +37,7 @@
             <RowDefinition Height="20*"></RowDefinition>
         </Grid.RowDefinitions>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Name="Exchange"  Header="_Exchange rate">
+            <MenuItem Name="Exchange" Click="Exchange_Click" Header="_Exchange rate">
             </MenuItem>
         </Menu>
         <Grid Grid.Row="1" ShowGridLines="True">
@@ -47,19 +54,19 @@
             
             <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="100">
                 <Label>Валюта</Label>
-                <ComboBox Name="Combo1" SelectedIndex="0" Height="30" Width="100" DisplayMemberPath="Name"/>
+                <ComboBox Name="Combo1" SelectedIndex="0"/>
                 <TextBox Name="TextBox_Value1" TextWrapping="Wrap"></TextBox>
             </StackPanel>
             
             <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="120">
                 <Label>Курс обміну</Label>   
                 <TextBox Name="TextBox_Exchange" Width="120" IsReadOnly="True"></TextBox>
-                <Button Name="Butto" Margin="0,10,0,0" >Exchange</Button>
+                <Button Name="Butto" Click="Butto_Click" Margin="0,10,0,0" >Exchange</Button>
             </StackPanel>
             
             <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="100">
                 <Label>Валюта</Label>
-                <ComboBox Name="Combo2" SelectedIndex="1" Height="30" Width="100"  DisplayMemberPath="Name"/>
+                <ComboBox Name="Combo2" SelectedIndex="1"/>
                 <TextBox Name="TextBox_Value2" IsReadOnly="True"></TextBox>
             </StackPanel>
             
