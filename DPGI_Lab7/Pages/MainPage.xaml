@@ -1,0 +1,68 @@
+﻿<Page x:Class="DPGI_Lab7.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DPGI_Lab7.Pages"
+      xmlns:command="clr-namespace:DPGI_Lab7.Commands"
+      mc:Ignorable="d"
+      Title="MainPage" Height="450" Width="800">
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{x:Static command:DataCommands.Create}"
+                        Executed="CreateCommandBinding_Executed"
+                        CanExecute="CreateCommandBinding_CanExecute"/>
+        
+        <CommandBinding Command="{x:Static command:DataCommands.Edit}"
+                        Executed="EditCommandBinding_Executed"
+                        CanExecute="EditCommandBinding_CanExecute"/>
+        
+        <CommandBinding Command="{x:Static command:DataCommands.Save}"
+                        Executed="SaveCommandBinding_Executed"
+                        CanExecute="SaveCommandBinding_CanExecute"/>
+        
+        <CommandBinding Command="{x:Static command:DataCommands.Find}"
+                        Executed="FindCommandBinding_Executed"
+                        CanExecute="FindCommandBinding_CanExecute"/>
+        
+        <CommandBinding Command="{x:Static command:DataCommands.Delete}"
+                        Executed="DeleteCommandBinding_Executed"
+                        CanExecute="DeleteCommandBinding_CanExecute"/>
+    </Page.CommandBindings>
+    
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <Menu>
+                    <MenuItem Header="Action">
+                        <MenuItem Header="Create" Command="{x:Static command:DataCommands.Create}"></MenuItem>
+                        <MenuItem Header="Edit" Command="{x:Static command:DataCommands.Edit}" ></MenuItem>
+                        <MenuItem Header="Delete" Command="{x:Static command:DataCommands.Delete}"></MenuItem>
+                        <MenuItem Header="Save" Command="{x:Static command:DataCommands.Save}"></MenuItem>
+                        <MenuItem Header="Find" Command="{x:Static command:DataCommands.Find}"></MenuItem>
+                    </MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="Report"></MenuItem>
+                </Menu>
+                
+                <StackPanel Orientation="Horizontal">
+                    <Button Width="100" ToolTip="Open file" Command="Open"><Image Source="/images/Open.png"/></Button>
+                    <Button Width="100" ToolTip="Clear all text" Command="Close"><Image Source="/images/Clear.png"/></Button>
+                    <Button Width="100" ToolTip="Copy dedicated text" Command="Copy" 
+                            CommandTarget="{Binding ElementName=TextBoxMain}"><Image Source="/images/Copy.png"/></Button>
+                    <Button Width="100" ToolTip="Paste" Command="Paste"
+                            CommandTarget="{Binding ElementName=TextBoxMain}"><Image Source="/images/Paste.png"/></Button>
+                </StackPanel>
+                
+            </StackPanel>
+            <DataGrid Grid.Row="1" Name="MainTableGrid"
+                      AutoGenerateColumns="True"
+                      ItemsSource="{Binding}">
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Page>
