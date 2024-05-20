@@ -83,32 +83,34 @@ public partial class MainPage : Page
         e.CanExecute = true;
     }
     private void EditCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e) {
-        int selectedId = Int32.Parse(IdBox.Text);
-        var client = _context.Clients.Find((long)selectedId);
-        
-        string name = "-";
-        string phone = "-";
-        var company = CompanyBox.SelectedIndex;
-
-        var gains = Convert.ToDouble(IfEmptyThenZero(GainsBox.Text.Trim()));
-        var spends = Convert.ToDouble(IfEmptyThenZero(SpendsBox.Text.Trim()));
-        if (NameBox.Text.Trim() != "")
+        if (MainTableGrid.SelectedIndex>=0)
         {
-            name = NameBox.Text.Trim();
-        }
-        if (PhoneBox.Text.Trim() != "")
-        {
-            phone = PhoneBox.Text.Trim();
-        }
+            int selectedId = Int32.Parse(IdBox.Text);
+            var client = _context.Clients.Find((long)selectedId);
         
-        client.ClientName = name;
-        client.ClientPhone = phone;
-        client.Company = company+1;
-        client.ClientGains = gains;
-        client.ClientSpends = spends;
+            string name = "-";
+            string phone = "-";
+            var company = CompanyBox.SelectedIndex;
 
-        _context.Clients.Update(client);
+            var gains = Convert.ToDouble(IfEmptyThenZero(GainsBox.Text.Trim()));
+            var spends = Convert.ToDouble(IfEmptyThenZero(SpendsBox.Text.Trim()));
+            if (NameBox.Text.Trim() != "")
+            {
+                name = NameBox.Text.Trim();
+            }
+            if (PhoneBox.Text.Trim() != "")
+            {
+                phone = PhoneBox.Text.Trim();
+            }
+        
+            client.ClientName = name;
+            client.ClientPhone = phone;
+            client.Company = company+1;
+            client.ClientGains = gains;
+            client.ClientSpends = spends;
 
+            _context.Clients.Update(client);
+        }
 
     }
     

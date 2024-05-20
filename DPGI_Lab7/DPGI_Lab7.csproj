@@ -27,18 +27,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Resource Include="Images\Clear.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Images\Copy.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Images\Open.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Images\Paste.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
       <None Remove="Images\create.png" />
       <Resource Include="Images\create.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -47,10 +35,7 @@
       <Resource Include="Images\delete.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
-      <None Remove="Images\find.png" />
-      <Resource Include="Images\reload.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
+      
       <None Remove="Images\save.png" />
       <Resource Include="Images\save.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
