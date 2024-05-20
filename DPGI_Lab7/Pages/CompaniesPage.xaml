@@ -1,0 +1,16 @@
+﻿<Page x:Class="DPGI_Lab7.Pages.CompaniesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DPGI_Lab7.Pages"
+      mc:Ignorable="d"
+      Title="CompaniesPage" Height="450" Width="800">
+    <Grid>
+        <DataGrid Grid.Row="0"  Name="MainTableGrid"
+                  AutoGenerateColumns="True"
+                  ItemsSource="{Binding}">
+                
+        </DataGrid>
+    </Grid>
+</Page>

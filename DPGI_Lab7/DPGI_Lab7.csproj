@@ -39,6 +39,45 @@
       <Resource Include="Images\Paste.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
+      <None Remove="Images\create.png" />
+      <Resource Include="Images\create.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\delete.png" />
+      <Resource Include="Images\delete.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\find.png" />
+      <Resource Include="Images\reload.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\save.png" />
+      <Resource Include="Images\save.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\reload.png" />
+      <Resource Include="Images\reload.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\search.png" />
+      <Resource Include="Images\search.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\edit.png" />
+      <Resource Include="Images\edit.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      
+      <None Remove="Images\page.png" />
+      <Resource Include="Images\page.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      
+      <None Remove="Images\page1.png" />
+      <Resource Include="Images\page1.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
     </ItemGroup>
+  
 
 </Project>

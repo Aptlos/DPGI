@@ -9,6 +9,7 @@ public class DataCommands
     public static RoutedCommand Edit { get; set; }
     public static RoutedCommand Save { get; set; }
     public static RoutedCommand Find { get; set; }
+    public static RoutedCommand Reload { get; set; }
     
     static DataCommands() {
         InputGestureCollection inputs = new InputGestureCollection();
@@ -22,6 +23,8 @@ public class DataCommands
         Save = new RoutedCommand("Save", typeof(DataCommands),inputs);
         inputs.Add(new KeyGesture(Key.F, ModifierKeys.Control, "Ctrl+F"));
         Find = new RoutedCommand("Find", typeof(DataCommands),inputs);
+        inputs.Add(new KeyGesture(Key.R, ModifierKeys.Control, "Ctrl+R"));
+        Reload = new RoutedCommand("Reload", typeof(DataCommands),inputs);
     
     }
 

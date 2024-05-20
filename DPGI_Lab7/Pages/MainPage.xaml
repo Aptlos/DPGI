@@ -28,15 +28,30 @@
         <CommandBinding Command="{x:Static command:DataCommands.Delete}"
                         Executed="DeleteCommandBinding_Executed"
                         CanExecute="DeleteCommandBinding_CanExecute"/>
+        
+        <CommandBinding Command="{x:Static command:DataCommands.Reload}"
+                        Executed="ReloadCommandBinding_Executed"
+                        CanExecute="ReloadCommandBinding_CanExecute"/>
     </Page.CommandBindings>
     
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"> </ColumnDefinition>
+                <ColumnDefinition Width="*"> </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
                 <Menu>
                     <MenuItem Header="Action">
                         <MenuItem Header="Create" Command="{x:Static command:DataCommands.Create}"></MenuItem>
@@ -44,25 +59,111 @@
                         <MenuItem Header="Delete" Command="{x:Static command:DataCommands.Delete}"></MenuItem>
                         <MenuItem Header="Save" Command="{x:Static command:DataCommands.Save}"></MenuItem>
                         <MenuItem Header="Find" Command="{x:Static command:DataCommands.Find}"></MenuItem>
+                        <MenuItem Header="Reload" Command="{x:Static command:DataCommands.Reload}"></MenuItem>
                     </MenuItem>
                     <Separator></Separator>
                     <MenuItem Header="Report"></MenuItem>
                 </Menu>
                 
                 <StackPanel Orientation="Horizontal">
-                    <Button Width="100" ToolTip="Open file" Command="Open"><Image Source="/images/Open.png"/></Button>
-                    <Button Width="100" ToolTip="Clear all text" Command="Close"><Image Source="/images/Clear.png"/></Button>
-                    <Button Width="100" ToolTip="Copy dedicated text" Command="Copy" 
-                            CommandTarget="{Binding ElementName=TextBoxMain}"><Image Source="/images/Copy.png"/></Button>
-                    <Button Width="100" ToolTip="Paste" Command="Paste"
-                            CommandTarget="{Binding ElementName=TextBoxMain}"><Image Source="/images/Paste.png"/></Button>
+                    <Button Width="70" ToolTip="Create client" Command="{x:Static command:DataCommands.Create}">
+                        <Image Source="/images/create.png"/>
+                    </Button>
+                    <Button Width="70" ToolTip="Edit client" Command="{x:Static command:DataCommands.Edit}" 
+                            Background="Transparent">
+                        <Image Source="/images/edit.png"/>
+                    </Button>
+                    <Button Width="70" ToolTip="Delete client" Command="{x:Static command:DataCommands.Delete}"
+                            Background="Transparent">
+                        <Image Source="/images/delete.png"/>
+                    </Button>
+                    <Button Width="70" ToolTip="Find client" Command="{x:Static command:DataCommands.Find}" 
+                            Background="Transparent">
+                        <Image Source="/images/search.png"/>
+                    </Button>
+                    <Button Width="70" ToolTip="Save all" Command="{x:Static command:DataCommands.Save}" 
+                            Background="Transparent">
+                        <Image Source="/images/save.png"/>
+                    </Button>
+                    <Button Width="70" ToolTip="Reload page" Command="{x:Static command:DataCommands.Reload}" 
+                            Background="Transparent">
+                        <Image Source="/images/reload.png"/>
+                    </Button>
+                    <Button Width="70" ToolTip="Clients page" Command="{x:Static command:DataCommands.Reload}" 
+                            Background="Transparent" Click="ButtonHyper_OnClick">
+                        <Image Source="/images/page.png"/>
+                    </Button>
+                    <Button Width="70" ToolTip="Companies page"
+                            Background="Transparent" Click="ButtonHyper1_OnClick">
+                        <Image Source="/images/page1.png"/>
+                    </Button>
                 </StackPanel>
                 
             </StackPanel>
-            <DataGrid Grid.Row="1" Name="MainTableGrid"
+            <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Name="MainTableGrid"
                       AutoGenerateColumns="True"
-                      ItemsSource="{Binding}">
+                      ItemsSource="{Binding}" SelectionChanged="MainTableGrid_SelectionChanged">
+                
             </DataGrid>
+            
+            <TextBlock Grid.Column="0" Grid.Row="2" Margin="5" Text="Id:"
+                       VerticalAlignment="Center" />
+            <TextBox Name="IdBox"
+                     Grid.Row="2" Grid.Column="1"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     Focusable="True" 
+                     IsReadOnly="True"
+                     Text="{Binding SelectedItem.ClientId, ElementName=MainTableGrid, Mode=OneWay}"/>
+            
+            
+            <TextBlock Grid.Column="0" Grid.Row="3" Margin="5" Text="Name:"
+                       VerticalAlignment="Center" />
+            <TextBox Name="NameBox"
+                     Grid.Row="3" Grid.Column="1"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     Focusable="True" 
+                     Text="{Binding SelectedItem.ClientName, ElementName=MainTableGrid, Mode=OneWay}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Margin="5" Text="Phone:"
+                       VerticalAlignment="Center" />
+            <TextBox Name="PhoneBox"
+                     Grid.Row="4" Grid.Column="1"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     Focusable="True" 
+                     Text="{Binding SelectedItem.ClientPhone, ElementName=MainTableGrid, Mode=OneWay}"/>
+        
+        
+            <TextBlock Grid.Column="0" Grid.Row="5" Margin="5" Text="Company:"
+                       VerticalAlignment="Center" />
+            <ComboBox Name="CompanyBox"
+                      Grid.Row="5" Grid.Column="1"
+                      VerticalAlignment="Center"
+                      Focusable="True"
+                      DisplayMemberPath="CompanyName" 
+                      ItemsSource="{Binding}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="6" Margin="5" Text="Gains:"
+                       VerticalAlignment="Center" />
+            <TextBox Name="GainsBox"
+                     Grid.Row="6" Grid.Column="1"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     Focusable="True" 
+                     PreviewTextInput="NumberValidationTextBox"
+                     Text="{Binding SelectedItem.ClientGains, ElementName=MainTableGrid, Mode=OneWay}"/>
+        
+            <TextBlock Grid.Column="0" Grid.Row="7" Margin="5" Text="Spends:"
+                       VerticalAlignment="Center" />
+            <TextBox Name="SpendsBox"
+                     Grid.Row="7" Grid.Column="1"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     Focusable="True" 
+                     PreviewTextInput="NumberValidationTextBox"
+                     Text="{Binding SelectedItem.ClientSpends, ElementName=MainTableGrid, Mode=OneWay}"/>
         </Grid>
     </Grid>
 </Page>
